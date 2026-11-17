@@ -1,876 +1,875 @@
-<!--
-================================================================================
-  🏮 LUNAR NEW YEAR DATE NIGHT — Fire Horse 2026
-================================================================================
-  FORMSPREE: Replace FORMSPREE_ENDPOINT in the <script> block.
-  GA4:       Replace GA_MEASUREMENT_ID in the <script> block.
-  COLORS:    Edit --primary and --accent in :root below.
-  DEPLOY:    Push as index.html → GitHub repo → Settings → Pages → main/(root)
-================================================================================
--->
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🏮 Lunar New Year Date Night 2026</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A very important question 💌</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+<style>
+  /* ---------- Theme (edit colors here) ---------- */
+  :root {
+    --bg-1: #ffd9b8;      /* peach */
+    --bg-2: #ffb3c1;      /* pink */
+    --bg-3: #d9c2f0;      /* lavender */
+    --card: #fffaf6;
+    --ink: #3a1c2a;       /* main text */
+    --ink-soft: #6b4656;  /* secondary text */
+    --accent: #c62f5b;    /* primary buttons */
+    --accent-dark: #a32149;
+    --line: #f0d9d3;
+    --radius: 22px;
+  }
 
-  <style>
-    :root {
-      --primary:      #C0392B;
-      --accent:       #F4C430;
-      --primary-glow: rgba(192,57,43,0.22);
-      --accent-glow:  rgba(244,196,48,0.22);
-    }
-    [data-theme="dark"] {
-      --bg:#0E0A08; --surface:#1C1108; --surf2:#251508;
-      --border:#3D2010; --border2:#5C3018;
-      --text:#F5E6D3; --text2:#B89A80; --text3:#7A5C48;
-      --shadow:rgba(0,0,0,0.72);
-    }
-    [data-theme="light"] {
-      --bg:#FDF6EE; --surface:#FFFFFF; --surf2:#FEF8F2;
-      --border:#E8D5C0; --border2:#D4B896;
-      --text:#2C1810; --text2:#7A5242; --text3:#B09080;
-      --shadow:rgba(80,30,10,0.13);
-    }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html, body { margin: 0; height: 100%; }
 
-    body {
-      font-family:'DM Sans',sans-serif;
-      background:var(--bg); color:var(--text);
-      min-height:100vh; display:flex; flex-direction:column;
-      align-items:center; padding:0 1rem 5rem;
-      transition:background .4s,color .4s;
-      position:relative; overflow-x:hidden;
-    }
+  body {
+    font-family: "DM Sans", system-ui, sans-serif;
+    color: var(--ink);
+    background: linear-gradient(160deg, var(--bg-1), var(--bg-2) 55%, var(--bg-3));
+    background-attachment: fixed;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: max(16px, env(safe-area-inset-top)) 16px max(24px, env(safe-area-inset-bottom));
+    overflow-x: hidden;
+  }
 
-    .deco-line {
-      position:fixed;top:0;left:0;right:0;height:3px;z-index:200;
-      background:linear-gradient(90deg,transparent,var(--primary) 20%,var(--accent) 50%,var(--primary) 80%,transparent);
-    }
+  /* ---------- Progress bar ---------- */
+  .progress {
+    width: 100%;
+    max-width: 440px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.55);
+    border-radius: 99px;
+    overflow: hidden;
+    margin-bottom: 18px;
+    flex-shrink: 0;
+  }
+  .progress-fill {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #f0668a, var(--accent));
+    border-radius: 99px;
+    transition: width 0.45s cubic-bezier(.2, .8, .2, 1);
+  }
 
-    .bg-glow{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
-    .bg-glow::before{
-      content:'';position:absolute;width:700px;height:700px;border-radius:50%;
-      background:radial-gradient(circle,rgba(192,57,43,0.1) 0%,transparent 65%);
-      top:-180px;right:-180px;animation:floatA 14s ease-in-out infinite alternate;
-    }
-    .bg-glow::after{
-      content:'';position:absolute;width:600px;height:600px;border-radius:50%;
-      background:radial-gradient(circle,rgba(244,196,48,0.07) 0%,transparent 65%);
-      bottom:-120px;left:-120px;animation:floatB 18s ease-in-out infinite alternate;
-    }
-    @keyframes floatA{from{transform:translate(0,0)}to{transform:translate(-25px,35px)}}
-    @keyframes floatB{from{transform:translate(0,0)}to{transform:translate(20px,-25px)}}
+  /* ---------- Card + step transitions ---------- */
+  main {
+    width: 100%;
+    max-width: 440px;
+    margin: auto 0;
+  }
 
-    .sparkles{position:fixed;inset:0;pointer-events:none;z-index:0;}
-    .spk{
-      position:absolute;width:3px;height:3px;border-radius:50%;
-      background:var(--accent);opacity:0;
-      animation:twinkle var(--d) ease-in-out var(--dl) infinite;
-    }
-    @keyframes twinkle{0%,100%{opacity:0;transform:scale(.5)}50%{opacity:.65;transform:scale(1.6)}}
+  .step {
+    display: none;
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 30px 22px 26px;
+    box-shadow: 0 18px 40px rgba(120, 40, 70, 0.18);
+    text-align: center;
+  }
+  .step.active { display: block; animation: slideIn 0.38s cubic-bezier(.2, .8, .2, 1); }
+  .step.active.back { animation-name: slideInBack; }
+  .step.leaving { animation: fadeOut 0.18s ease forwards; }
 
-    .theme-btn {
-      position:fixed;top:1.1rem;right:1.1rem;z-index:300;
-      background:var(--surface);border:1px solid var(--border2);border-radius:50px;
-      padding:.4rem .9rem .4rem .65rem;cursor:pointer;
-      font-family:'DM Sans',sans-serif;font-size:.78rem;color:var(--text2);
-      display:flex;align-items:center;gap:.4rem;
-      box-shadow:0 2px 12px var(--shadow);transition:all .25s;
-    }
-    .theme-btn:hover{border-color:var(--accent);color:var(--accent);}
+  @keyframes slideIn     { from { opacity: 0; transform: translateX(36px); }  to { opacity: 1; transform: none; } }
+  @keyframes slideInBack { from { opacity: 0; transform: translateX(-36px); } to { opacity: 1; transform: none; } }
+  @keyframes fadeOut     { to   { opacity: 0; transform: scale(0.97); } }
 
-    /* ══ HEADER ══ */
-    .page-header {
-      position:relative;z-index:1;text-align:center;
-      padding:3.8rem 1rem 0;margin-bottom:2.4rem;
-      max-width:620px;width:100%;
-    }
-    .hdr-emojis{
-      font-size:2.4rem;letter-spacing:.2em;display:block;margin-bottom:1rem;
-      animation:sway 5s ease-in-out infinite alternate;
-    }
-    @keyframes sway{from{transform:rotate(-2deg)}to{transform:rotate(2deg)}}
-    .hdr-eyebrow{font-size:.7rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem;}
-    .hdr-viet{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.3rem;color:var(--primary);margin-bottom:.55rem;}
-    .hdr-title{
-      font-family:'Cormorant Garamond',serif;
-      font-size:clamp(2.4rem,7vw,3.8rem);font-weight:700;line-height:1.08;letter-spacing:-.01em;
-      background:linear-gradient(135deg,var(--text) 30%,var(--accent) 100%);
-      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-    }
-    .ornament{
-      display:flex;align-items:center;gap:.9rem;
-      margin:1.4rem auto 0;color:var(--accent);opacity:.65;font-size:.85rem;letter-spacing:.3em;
-    }
-    .ornament::before,.ornament::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);}
+  /* ---------- Type ---------- */
+  .big-emoji { font-size: 54px; line-height: 1; margin-bottom: 12px; }
+  h1 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(26px, 7.5vw, 34px);
+    line-height: 1.15;
+    margin: 0 0 10px;
+    outline: none;
+  }
+  p { margin: 0 0 18px; color: var(--ink-soft); font-size: 17px; line-height: 1.45; }
+  .tease { font-size: 15px; margin-top: -6px; }
 
-    /* ══ CARD ══ */
-    .card-wrap {
-      position:relative;z-index:1;width:100%;max-width:580px;
-      /* This wrapper is what gets swept away by the horse */
-    }
-    .card {
-      background:var(--surface);border:1px solid var(--border);border-radius:20px;
-      padding:2.5rem 2.5rem 2rem;width:100%;
-      box-shadow:0 0 0 1px var(--border2),0 32px 72px var(--shadow),inset 0 1px 0 rgba(244,196,48,.06);
-      transition:background .4s,border-color .4s;
-      position:relative;overflow:hidden;
-    }
-    .card::before,.card::after{content:'✦';position:absolute;font-size:.65rem;color:var(--accent);opacity:.4;}
-    .card::before{top:1rem;left:1.2rem;}
-    .card::after{top:1rem;right:1.2rem;}
+  /* ---------- Buttons ---------- */
+  .btn {
+    font: inherit;
+    font-weight: 700;
+    font-size: 18px;
+    min-height: 56px;
+    padding: 14px 26px;
+    border: 0;
+    border-radius: 99px;
+    cursor: pointer;
+    color: #fff;
+    background: var(--accent);
+    box-shadow: 0 6px 0 var(--accent-dark);
+    transition: transform 0.15s cubic-bezier(.3, 1.6, .5, 1), box-shadow 0.15s, opacity 0.2s;
+    touch-action: manipulation;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn:active { transform: translateY(3px) scale(0.96); box-shadow: 0 2px 0 var(--accent-dark); }
+  .btn:focus-visible, .card-btn:focus-visible, .chip:focus-visible, .link-btn:focus-visible {
+    outline: 3px solid var(--ink); outline-offset: 3px;
+  }
+  .btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; box-shadow: 0 6px 0 var(--accent-dark); }
+  .btn-wide { width: 100%; }
 
-    /* ══ PROGRESS ══ */
-    .prog-wrap{margin-bottom:2rem;}
-    .prog-meta{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.55rem;}
-    .prog-label{font-size:.74rem;color:var(--text3);letter-spacing:.04em;}
-    .prog-pct{font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--accent);font-weight:600;}
-    .prog-track{height:3px;border-radius:99px;background:var(--border);overflow:hidden;margin-bottom:.7rem;}
-    .prog-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--primary),var(--accent));transition:width .55s cubic-bezier(.4,0,.2,1);box-shadow:0 0 8px var(--accent-glow);}
-    .dots{display:flex;gap:.45rem;}
-    .dot{width:6px;height:6px;border-radius:50%;background:var(--border2);transition:all .3s;}
-    .dot.on{background:var(--accent);transform:scale(1.45);box-shadow:0 0 5px var(--accent);}
-    .dot.done{background:var(--primary);opacity:.5;}
+  .btn-secondary {
+    background: #fff;
+    color: var(--ink);
+    box-shadow: 0 6px 0 var(--line);
+    border: 2px solid var(--line);
+  }
+  .btn-secondary:active { box-shadow: 0 2px 0 var(--line); }
 
-    /* ══ STEPS ══ */
-    .step{display:none;}
-    .step.active{display:block;animation:slideIn .36s ease forwards;}
-    @keyframes slideIn{from{opacity:0;transform:translateX(22px)}to{opacity:1;transform:translateX(0)}}
+  .link-btn {
+    font: inherit;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--ink-soft);
+    background: none;
+    border: 0;
+    padding: 12px 14px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 12px;
+  }
 
-    .step-head{margin-bottom:1.75rem;}
-    .step-num{font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--primary);margin-bottom:.3rem;}
-    .step-title{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:700;color:var(--text);line-height:1.18;}
-    .step-hint{font-size:.8rem;color:var(--text3);margin-top:.35rem;font-style:italic;}
+  /* ---------- Step 2: Yes / No ---------- */
+  .yes-no {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    align-items: center;
+    min-height: 90px;
+    margin-top: 8px;
+  }
+  .btn-yes { transform: scale(var(--grow, 1)); }
+  .btn-yes:hover { transform: scale(var(--grow, 1)) translateY(-2px); }
+  .btn-yes:active { transform: scale(calc(var(--grow, 1) * 0.95)); }
 
-    /* ══ FIELDS ══ */
-    .field{margin-bottom:1.25rem;}
-    .field label{display:block;font-size:.82rem;font-weight:500;color:var(--text2);margin-bottom:.42rem;letter-spacing:.015em;}
-    .req{color:var(--accent);margin-left:1px;}
+  .btn-no { white-space: nowrap; transform: scale(var(--s, 1)); }
+  .btn-no:hover, .btn-no:active { transform: scale(var(--s, 1)); }
+  /* Once it starts running it lives on <body> and floats around the screen */
+  .btn-no.fleeing {
+    position: fixed;
+    z-index: 50;
+    margin: 0;
+    transition: left 0.22s ease-out, top 0.22s ease-out, transform 0.22s ease-out;
+  }
 
-    .field input[type="text"],
-    .field input[type="email"],
-    .field select,
-    .field textarea {
-      width:100%;background:var(--surf2);
-      border:1.5px solid var(--border2);border-radius:10px;
-      padding:.72rem 1rem;color:var(--text);
-      font-family:'DM Sans',sans-serif;font-size:.9rem;
-      outline:none;-webkit-appearance:none;
-      transition:border-color .25s,box-shadow .25s,background .25s;
-    }
-    .field select{
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23F4C430' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-      background-repeat:no-repeat;background-position:right 1rem center;
-      padding-right:2.5rem;cursor:pointer;
-    }
-    .field select option{background:var(--surface);}
-    .field textarea{resize:vertical;min-height:100px;}
-    .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow);background:var(--surface);}
-    .field input.error,.field select.error,.field textarea.error{border-color:var(--primary);box-shadow:0 0 0 3px var(--primary-glow);}
+  /* ---------- Option cards (steps 3 & 4) ---------- */
+  .cards { display: grid; gap: 12px; margin-top: 6px; }
+  .card-btn {
+    font: inherit;
+    color: var(--ink);
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    min-height: 76px;
+    padding: 16px;
+    background: #fff;
+    border: 2px solid var(--line);
+    border-radius: 18px;
+    cursor: pointer;
+    transition: transform 0.15s cubic-bezier(.3, 1.6, .5, 1), border-color 0.15s, background 0.15s;
+    touch-action: manipulation;
+  }
+  .card-btn:hover { transform: translateY(-2px); border-color: var(--accent); }
+  .card-btn:active { transform: scale(0.97); background: #fff0f3; }
+  .card-btn.selected { border-color: var(--accent); background: #fff0f3; }
+  .card-emoji { font-size: 34px; line-height: 1; flex-shrink: 0; }
+  .card-title { display: block; font-weight: 700; font-size: 17px; line-height: 1.3; }
+  .card-sub { display: block; font-size: 15px; color: var(--ink-soft); margin-top: 4px; line-height: 1.35; }
 
-    /* textarea counter */
-    .ta-wrap{position:relative;}
-    .char-cnt{position:absolute;bottom:.55rem;right:.75rem;font-size:.7rem;color:var(--text3);pointer-events:none;transition:color .2s;}
-    .char-cnt.warn{color:var(--accent);}
-    .char-cnt.over{color:#E74C3C;}
+  /* ---------- Step 5: day, time, notes ---------- */
+  .field { text-align: left; margin-bottom: 18px; }
+  .field label, .field .label {
+    display: block; font-weight: 700; font-size: 15px; margin-bottom: 8px;
+  }
+  textarea {
+    font: inherit;
+    font-size: 17px;           /* 16px+ stops iOS zooming in on focus */
+    color: var(--ink);
+    width: 100%;
+    min-height: 84px;
+    padding: 13px 14px;
+    background: #fff;
+    border: 2px solid var(--line);
+    border-radius: 14px;
+    resize: vertical;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  textarea:focus { outline: none; border-color: var(--accent); }
 
-    /* errors */
-    .err{font-size:.76rem;color:var(--primary);margin-top:.28rem;display:none;align-items:center;gap:.3rem;}
-    .err.show{display:flex;}
-    .err::before{content:'◆';font-size:.5rem;}
+  /* Chips share the row equally, however many there are */
+  .chips { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 10px; }
+  .chip {
+    font: inherit;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--ink);
+    min-height: 72px;
+    padding: 10px 6px;
+    background: #fff;
+    border: 2px solid var(--line);
+    border-radius: 14px;
+    cursor: pointer;
+    transition: transform 0.15s cubic-bezier(.3, 1.6, .5, 1), background 0.15s, border-color 0.15s;
+    touch-action: manipulation;
+  }
+  .chip:active { transform: scale(0.94); }
+  .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .chip .chip-emoji { display: block; font-size: 22px; }
+  .chip .chip-small { display: block; font-size: 14px; font-weight: 500; margin-top: 2px; }
 
+  /* ---------- Step 6: loading / success / error ---------- */
+  .panel { display: none; }
+  .panel.show { display: block; animation: slideIn 0.35s cubic-bezier(.2, .8, .2, 1); }
+  .envelope { font-size: 60px; display: inline-block; animation: fly 1.1s ease-in-out infinite; }
+  @keyframes fly {
+    0%, 100% { transform: translateY(0) rotate(-6deg); }
+    50%      { transform: translateY(-14px) rotate(6deg); }
+  }
+  .summary {
+    background: #fff0f3;
+    border: 2px dashed #f0a3b8;
+    border-radius: 18px;
+    padding: 18px 16px;
+    margin: 6px 0 16px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--ink);
+  }
 
+  #confetti { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 100; }
 
-    /* ══ RADIO CARDS ══ */
-    .radio-cards{display:flex;flex-direction:column;gap:.65rem;}
-    .r-card{
-      display:flex;align-items:center;gap:.9rem;
-      padding:.85rem 1rem;border-radius:12px;
-      border:1.5px solid var(--border2);background:var(--surf2);
-      cursor:pointer;transition:all .22s;
-    }
-    .r-card:hover{border-color:var(--accent);background:var(--surface);}
-    .r-card input[type="radio"]{display:none;}
-    .r-dot{
-      width:18px;min-width:18px;height:18px;border-radius:50%;
-      border:2px solid var(--border2);background:var(--surf2);
-      display:flex;align-items:center;justify-content:center;
-      transition:all .2s;
-    }
-    .r-dot::after{content:'';width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:0;transition:opacity .2s;}
-    .r-card input:checked ~ .r-dot{border-color:var(--accent);}
-    .r-card input:checked ~ .r-dot::after{opacity:1;}
-    .r-card:has(input:checked){border-color:var(--accent);background:rgba(244,196,48,.06);box-shadow:0 0 0 1px var(--accent-glow);}
-    .r-info{flex:1;}
-    .r-title{font-size:.92rem;font-weight:500;color:var(--text);}
-    .r-sub{font-size:.76rem;color:var(--text3);margin-top:2px;}
-    .r-emoji{font-size:1.4rem;}
-
-    /* ══ CHECKBOXES ══ */
-    .check-col{display:flex;flex-direction:column;gap:.6rem;}
-    .chk{display:flex;align-items:flex-start;gap:.65rem;cursor:pointer;}
-    .chk input[type="checkbox"]{display:none;}
-    .chk-box{
-      width:20px;min-width:20px;height:20px;border-radius:5px;
-      border:1.5px solid var(--border2);background:var(--surf2);
-      display:flex;align-items:center;justify-content:center;
-      transition:all .2s;margin-top:2px;
-    }
-    .chk-box svg{display:none;width:10px;height:10px;}
-    .chk input:checked ~ .chk-box{background:var(--accent);border-color:var(--accent);box-shadow:0 0 8px var(--accent-glow);}
-    .chk input:checked ~ .chk-box svg{display:block;}
-    .chk:hover .chk-box{border-color:var(--accent);}
-    .chk-lbl{font-size:.9rem;line-height:1.5;color:var(--text);}
-    .chk-lbl small{display:block;font-size:.75rem;color:var(--text3);margin-top:1px;}
-
-    .divider{display:flex;align-items:center;gap:.7rem;margin:1.4rem 0 1.3rem;color:var(--text3);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;}
-    .divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border);}
-
-    /* ══ BUTTONS ══ */
-    .btn-row{display:flex;gap:.75rem;margin-top:2rem;}
-    .btn{font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:500;padding:.75rem 1.5rem;border-radius:10px;border:none;cursor:pointer;transition:all .22s;display:inline-flex;align-items:center;justify-content:center;gap:.4rem;}
-    .btn-next{flex:1;background:linear-gradient(135deg,var(--primary) 0%,#A93226 100%);color:#FDF6EE;box-shadow:0 4px 16px rgba(192,57,43,.3);}
-    .btn-next:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(192,57,43,.42);}
-    .btn-next:active{transform:translateY(0);}
-    .btn-next:disabled{opacity:.4;cursor:not-allowed;transform:none;}
-    .btn-back{background:transparent;border:1.5px solid var(--border2);color:var(--text2);padding:.75rem 1.15rem;}
-    .btn-back:hover{border-color:var(--text2);color:var(--text);}
-    .btn-sub{flex:1;background:linear-gradient(135deg,var(--accent) 0%,#D4AB00 100%);color:#1A0A00;font-weight:600;box-shadow:0 4px 16px rgba(244,196,48,.28);}
-    .btn-sub:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(244,196,48,.45);}
-    .btn-sub:active{transform:translateY(0);}
-    .btn-sub:disabled{opacity:.55;cursor:not-allowed;transform:none !important;}
-    .spinner{display:none;width:15px;height:15px;border:2px solid rgba(26,10,0,.25);border-top-color:#1A0A00;border-radius:50%;animation:spin .7s linear infinite;}
-    .loading .spinner{display:block;}
-    @keyframes spin{to{transform:rotate(360deg)}}
-
-    .save-badge{display:inline-flex;align-items:center;gap:.35rem;font-size:.72rem;color:var(--accent);opacity:0;transition:opacity .5s;margin-top:.75rem;}
-    .save-badge.show{opacity:1;}
-    .save-dot{width:5px;height:5px;border-radius:50%;background:var(--accent);animation:pulse 1.5s infinite;}
-    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.2}}
-
-
-    /* ══════════════════════════════════════════════════════
-       FIRE HORSE GALLOP TRANSITION
-       The horse runs left→right across the viewport,
-       dragging the card off-screen with it.
-    ══════════════════════════════════════════════════════ */
-
-    /* The horse emoji that gallops across */
-    #gallop-horse {
-      position: fixed;
-      /* Start just off the LEFT edge, vertically centered-ish */
-      left: -140px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 6rem;
-      z-index: 2000;
-      pointer-events: none;
-      filter: drop-shadow(0 0 20px #F4C430) drop-shadow(0 0 40px #C0392B);
-      display: none;
-      /* Legs bob animation */
-      animation: horseBob 0.22s steps(2) infinite;
-    }
-    #gallop-horse.running {
-      display: block;
-      animation: horseGallop 1.5s cubic-bezier(.4,0,.6,1) forwards,
-                 horseBob 0.2s steps(2) infinite;
-    }
-    @keyframes horseGallop {
-      0%   { left: -140px; }
-      100% { left: calc(100vw + 40px); }
-    }
-    @keyframes horseBob {
-      0%   { transform: translateY(-50%) rotate(-3deg) scaleX(-1); }
-      50%  { transform: translateY(calc(-50% - 8px)) rotate(3deg) scaleX(-1); }
-      100% { transform: translateY(-50%) rotate(-3deg) scaleX(-1); }
-    }
-
-    /* Fire trail that follows the horse */
-    .fire-trail {
-      position: fixed;
-      top: 50%;
-      transform: translateY(-50%);
-      pointer-events: none;
-      z-index: 1999;
-      display: none;
-    }
-    .fire-trail.running { display: block; }
-
-    .ft-particle {
-      position: fixed;
-      top: 50%;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 1998;
-      opacity: 0;
-    }
-    .ft-particle.burst {
-      animation: trailBurst var(--td) ease-out forwards;
-    }
-    @keyframes trailBurst {
-      0%   { opacity: .9; transform: translateY(-50%) scale(1) translate(0,0); }
-      100% { opacity: 0; transform: translateY(calc(-50% + var(--ty))) scale(.2) translateX(var(--tx)); }
-    }
-
-    /* The card sweeping off to the right */
-    .card-wrap {
-      transition: none;
-    }
-    .card-wrap.sweep-right {
-      animation: cardSweep 1.4s cubic-bezier(.4,0,.8,1) forwards;
-    }
-    @keyframes cardSweep {
-      0%   { transform: translateX(0);   opacity: 1; }
-      60%  { transform: translateX(0);   opacity: 1; }   /* horse arrives first */
-      100% { transform: translateX(120vw); opacity: 0; }
-    }
-
-    /* Ground fire streak */
-    #ground-fire {
-      position: fixed;
-      top: 50%;
-      left: 0; right: 0;
-      height: 4px;
-      margin-top: 46px;
-      background: linear-gradient(90deg, transparent, #FF6B00, #F4C430, transparent);
-      z-index: 1997;
-      display: none;
-      animation: groundStreak 1.5s ease-in-out forwards;
-    }
-    #ground-fire.running { display: block; }
-    @keyframes groundStreak {
-      0%   { opacity: 0; transform: scaleX(0); transform-origin: left; }
-      20%  { opacity: .8; transform: scaleX(.4); }
-      60%  { opacity: 1; transform: scaleX(1); }
-      100% { opacity: 0; transform: scaleX(1); }
-    }
-
-
-    /* ══ THANK YOU ══ */
-    .ty{display:none;text-align:center;padding:1.5rem 0 .5rem;}
-    .ty.show{display:block;animation:slideIn .5s ease forwards;}
-    .ty-icon{font-size:3rem;display:block;margin-bottom:1.1rem;animation:popUp .65s cubic-bezier(.34,1.56,.64,1) forwards;}
-    @keyframes popUp{from{opacity:0;transform:translateY(16px) scale(.7)}to{opacity:1;transform:translateY(0) scale(1)}}
-    .ty-date{
-      font-family:'Cormorant Garamond',serif;
-      font-size:clamp(2.8rem,10vw,4.5rem);font-weight:700;line-height:1;
-      background:linear-gradient(135deg,var(--text) 20%,var(--accent) 70%,var(--primary) 100%);
-      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-      background-clip:text;margin-bottom:.4rem;letter-spacing:-.02em;
-    }
-    .ty-sub-date{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--text2);margin-bottom:1.5rem;line-height:1.6;}
-    .ty-box{background:var(--surf2);border:1px solid var(--border2);border-radius:14px;padding:1.2rem 1.3rem;text-align:left;margin-bottom:1rem;}
-    .ty-row{display:flex;align-items:baseline;gap:.6rem;font-size:.85rem;color:var(--text2);line-height:1.7;}
-    .ty-row+.ty-row{margin-top:.35rem;}
-    .ty-row .ico{font-size:1rem;}
-    .ty-row strong{color:var(--text);}
-    .ty-viet{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:var(--primary);margin-top:1rem;opacity:.8;}
-
-    @media(max-width:480px){
-      .card{padding:1.75rem 1.2rem 1.5rem;}
-      .page-header{padding-top:2.8rem;}
-      #gallop-horse{font-size:4rem;}
-    }
-  </style>
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+</style>
 </head>
 <body>
 
-  <div class="deco-line"></div>
-  <div class="bg-glow"></div>
-  <div class="sparkles" id="sparkles"></div>
+<div class="progress" role="progressbar" aria-label="Progress" aria-valuemin="1" aria-valuemax="6" aria-valuenow="1">
+  <div class="progress-fill" id="progressFill"></div>
+</div>
 
-  <!-- Galloping horse elements -->
-  <div id="gallop-horse">🐎</div>
-  <div id="ground-fire"></div>
+<main>
+  <!-- STEP 1: Intro -->
+  <section class="step active" data-step="1">
+    <div class="big-emoji" aria-hidden="true">👋</div>
+    <h1 tabindex="-1" id="introTitle">Hey Julia</h1>
+    <p>I have a very important question...</p>
+    <button type="button" class="btn btn-wide" id="startBtn">Okay, I'm listening</button>
+  </section>
 
-  <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
-    <span id="t-icon">☀️</span>
-    <span id="t-lbl">Light</span>
-  </button>
+  <!-- STEP 2: The question -->
+  <section class="step" data-step="2">
+    <div class="big-emoji" aria-hidden="true">🥺</div>
+    <h1 tabindex="-1">Will you go on a date with me?</h1>
+    <p>No pressure. (Some pressure.)</p>
+    <div class="yes-no">
+      <button type="button" class="btn btn-yes" id="yesBtn">Yes 😊</button>
+      <button type="button" class="btn btn-secondary btn-no" id="noBtn">No</button>
+    </div>
+  </section>
 
-  <!-- ══ HEADER ══ -->
-  <header class="page-header">
-    <span class="hdr-emojis">🏮 🐎 🏮</span>
-    <p class="hdr-eyebrow">Year of the Fire Horse · 2026</p>
-    <p class="hdr-viet">Chúc Mừng Năm Mới</p>
-    <h1 class="hdr-title">Lunar New Year<br>Date Night</h1>
-    <div class="ornament">✦ ✦ ✦</div>
-  </header>
+  <!-- STEP 3: Vibe (cards are built from VIBES in the script) -->
+  <section class="step" data-step="3">
+    <h1 tabindex="-1">What's your first date vibe?</h1>
+    <p class="tease" id="noTease" hidden></p>
+    <div class="cards" id="vibeCards"></div>
+  </section>
 
-  <!-- ══ CARD WRAPPER (this gets swept away) ══ -->
-  <div class="card-wrap" id="card-wrap">
-  <div class="card" id="card">
+  <!-- STEP 4: Sub-options (built from the chosen vibe) -->
+  <section class="step" data-step="4">
+    <div class="big-emoji" id="subEmoji" aria-hidden="true"></div>
+    <h1 tabindex="-1" id="subTitle">Good choice. Now pick one:</h1>
+    <div class="cards" id="subCards"></div>
+    <button type="button" class="link-btn" id="backToVibe">← Back</button>
+  </section>
 
-    <div class="prog-wrap" id="prog-wrap">
-      <div class="prog-meta">
-        <span class="prog-label" id="prog-label">Step 1 of 2</span>
-        <span class="prog-pct" id="prog-pct">50%</span>
-      </div>
-      <div class="prog-track"><div class="prog-fill" id="prog-fill" style="width:50%"></div></div>
-      <div class="dots" id="dots"></div>
+  <!-- STEP 5: Day & time (chips are built from DAY_OPTIONS and TIMES in the script) -->
+  <section class="step" data-step="5">
+    <h1 tabindex="-1">When are you free?</h1>
+    <p>Pick a day and a time. I'll handle the rest.</p>
+
+    <div class="field">
+      <span class="label" id="dayLabel">Day</span>
+      <div class="chips" id="dayChips" role="group" aria-labelledby="dayLabel"></div>
     </div>
 
-    <!-- ═══ STEP 1 ═══ -->
-    <div class="step active" id="step-1">
-      <div class="step-head">
-        <p class="step-num">Step 1</p>
-        <h2 class="step-title">Enter name to unlock 🔐</h2>
-        <p class="step-hint">Wrong answers only.</p>
-      </div>
-      <div class="field">
-        <label for="name1">Your name <span class="req">*</span></label>
-        <input type="text" id="name1" name="name1" placeholder="Who's that girl dressed as a kiwi?" autocomplete="off"
-          oninput="checkWrongAnswer(this)" />
-        <p class="err" id="e-n1">You have to enter something, even if it's wrong.</p>
-      </div>
-      <div class="btn-row">
-        <button class="btn btn-next" id="unlock-btn" onclick="goNext(1)" disabled>
-          Unlock 🐎
-        </button>
-      </div>
+    <div class="field">
+      <span class="label" id="timeLabel">Time</span>
+      <div class="chips" id="timeChips" role="group" aria-labelledby="timeLabel"></div>
     </div>
 
-    <!-- ═══ STEP 2 ═══ -->
-    <div class="step" id="step-2">
-      <div class="step-head">
-        <p class="step-num">Step 2 · The Plan</p>
-        <h2 class="step-title">Let's plan our night 🥢</h2>
-      </div>
-
-      <!-- DINNER -->
-      <div class="field">
-        <label>What are you feeling? <span class="req">*</span></label>
-        <div class="radio-cards" id="vibe-group">
-          <label class="r-card">
-            <input type="radio" name="vibe" value="sushi" onchange="autoSave()" />
-            <span class="r-dot"></span>
-            <span class="r-emoji">🍣</span>
-            <span class="r-info">
-              <span class="r-title">Sushi</span>
-              <span class="r-sub">Fresh cuts, good vibes, cold sake</span>
-            </span>
-          </label>
-          <label class="r-card">
-            <input type="radio" name="vibe" value="dtf" onchange="autoSave()" />
-            <span class="r-dot"></span>
-            <span class="r-emoji">🥟</span>
-            <span class="r-info">
-              <span class="r-title">DTF — Din Tai Fung… duh</span>
-              <span class="r-sub"></span>
-            </span>
-          </label>
-          <label class="r-card">
-            <input type="radio" name="vibe" value="homecooked" onchange="autoSave()" />
-            <span class="r-dot"></span>
-            <span class="r-emoji">🍹</span>
-            <span class="r-info">
-              <span class="r-title">Home-cooked meal, dessert &amp; margs</span>
-              <span class="r-sub">Cozy night in, made by Chef Ali</span>
-            </span>
-          </label>
-          <label class="r-card">
-            <input type="radio" name="vibe" value="viet" onchange="autoSave()" />
-            <span class="r-dot"></span>
-            <span class="r-emoji">🍜</span>
-            <span class="r-info">
-              <span class="r-title">Viet fusion restaurant</span>
-              <span class="r-sub"></span>
-            </span>
-          </label>
-          <label class="r-card" id="r-card-custom">
-            <input type="radio" name="vibe" value="custom" onchange="toggleCustomIdea(true);autoSave()" />
-            <span class="r-dot"></span>
-            <span class="r-emoji">💡</span>
-            <span class="r-info">
-              <span class="r-title">I have an idea…</span>
-              <span class="r-sub">Recs are encouraged if you've been craving something</span>
-            </span>
-          </label>
-        </div>
-        <div class="custom-idea-wrap" id="custom-idea-wrap" style="display:none;margin-top:.75rem;">
-          <div class="ta-wrap">
-            <textarea id="custom-idea" name="custom_idea" maxlength="300"
-              placeholder="What are you craving? Spill it…"
-              oninput="updateCounter(this,300);autoSave();"></textarea>
-            <span class="char-cnt" id="cnt-custom-idea">0 / 300</span>
-          </div>
-          <p class="err" id="e-custom">Tell us your idea!</p>
-        </div>
-        <p class="err" id="e-vibe">Please pick a dinner vibe.</p>
-      </div>
-
-      <div class="divider">Post-dinner activity</div>
-
-      <div class="field">
-        <label>What are we doing after?
-          <small style="font-weight:400;color:var(--text3)">(pick all that apply)</small>
-        </label>
-        <div class="check-col" id="activity-group">
-          <label class="chk">
-            <input type="checkbox" name="activity" value="paint" onchange="autoSave()" />
-            <span class="chk-box"><svg viewBox="0 0 10 8" fill="none"><polyline points="1,4 3.5,7 9,1" stroke="#1A0A00" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            <span class="chk-lbl">🎨 Paint<small>Brushes out, vibes immaculate</small></span>
-          </label>
-          <label class="chk">
-            <input type="checkbox" name="activity" value="movies" onchange="autoSave()" />
-            <span class="chk-box"><svg viewBox="0 0 10 8" fill="none"><polyline points="1,4 3.5,7 9,1" stroke="#1A0A00" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            <span class="chk-lbl">🎬 Movies<small>Couch locked, snacks mandatory</small></span>
-          </label>
-          <label class="chk">
-            <input type="checkbox" name="activity" value="boardgames" onchange="autoSave()" />
-            <span class="chk-box"><svg viewBox="0 0 10 8" fill="none"><polyline points="1,4 3.5,7 9,1" stroke="#1A0A00" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            <span class="chk-lbl">🎲 Board games<small>May the best player win...winner gets a kiss</small></span>
-          </label>
-        </div>
-        <!-- No required marker — Kiwi's choice can bypass this -->
-      </div>
-
-      <!-- KIWI'S CHOICE -->
-      <div class="field">
-        <label for="kiwi">Kiwi's choice 🥝 <small style="font-weight:400;color:var(--text3)">— fills this in instead of picking above</small></label>
-        <div class="ta-wrap">
-          <textarea id="kiwi" name="kiwi_choice" maxlength="300"
-            placeholder="Whatever Kiwi wants, Kiwi gets…"
-            oninput="updateCounter(this,300);autoSave();"></textarea>
-          <span class="char-cnt" id="cnt-kiwi">0 / 300</span>
-        </div>
-      </div>
-
-      <p class="err" id="e-act">Please pick an activity OR fill in Kiwi's choice above.</p>
-
-      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
-
-      <div class="btn-row">
-        <button class="btn btn-back" onclick="goBack(2)">← Back</button>
-        <button class="btn btn-sub" id="sub-btn" onclick="submitForm()">
-          <span class="spinner"></span>
-          <span class="btn-txt">Submit 🐎</span>
-        </button>
-      </div>
+    <div class="field">
+      <label for="notesInput">Anything I should know? (food you hate, etc.)</label>
+      <textarea id="notesInput" maxlength="500" placeholder="Optional, but useful intel"></textarea>
     </div>
 
-    <div class="save-badge" id="save-badge">
-      <span class="save-dot"></span> Progress saved
+    <button type="button" class="btn btn-wide" id="lockBtn" disabled>Lock it in 💌</button>
+    <button type="button" class="link-btn" id="backToSub">← Back</button>
+  </section>
+
+  <!-- STEP 6: Sending / confirmation / error -->
+  <section class="step" data-step="6">
+    <div class="panel" id="panelLoading" role="status">
+      <div class="envelope" aria-hidden="true">💌</div>
+      <h1 tabindex="-1" id="loadingTitle">Sending to Gabriel... 💌</h1>
+      <p>Hold tight, this is the important part.</p>
     </div>
 
-    <!-- ═══ THANK YOU ═══ -->
-    <div class="ty" id="ty">
-      <span class="ty-icon">🏮🐎🏮</span>
-      <h2 class="ty-date">See you 2/25</h2>
-      <p class="ty-sub-date">evening 🌙</p>
-      <div class="ty-box">
-        <div class="ty-row">
-          <span class="ico">📅</span>
-          <span>Your date night is locked in for <strong>February 25th</strong> — get excited!</span>
-        </div>
-        <div class="ty-row">
-          <span class="ico">✨</span>
-          <span>Details coming your way soon. All you have to do is <strong>show up.</strong></span>
-        </div>
-        <div class="ty-row">
-          <span class="ico">🐎</span>
-          <span><strong id="ty-name-horse">The Fire Horse</strong> has spoken — <strong>this is going to be a great year.</strong></span>
-        </div>
-      </div>
-      <p class="ty-viet">Chúc Mừng Năm Mới 🏮</p>
+    <div class="panel" id="panelSuccess">
+      <div class="big-emoji" aria-hidden="true">🎉</div>
+      <h1 tabindex="-1">It's a date!</h1>
+      <div class="summary" id="summaryText"></div>
+      <p id="successNote"></p>
     </div>
 
-  </div><!-- /card -->
-  </div><!-- /card-wrap -->
+    <div class="panel" id="panelError" role="alert">
+      <div class="big-emoji" aria-hidden="true">🙈</div>
+      <h1 tabindex="-1">Well, that's awkward</h1>
+      <p>Your answer didn't send. It's the internet's fault, not yours. Everything you picked is saved.</p>
+      <button type="button" class="btn btn-wide" id="retryBtn">Try again</button>
+      <button type="button" class="link-btn" id="editBtn">← Edit my answers</button>
+    </div>
+  </section>
+</main>
 
-  <script>
-    const FORMSPREE_ENDPOINT = "https://formspree.io/f/xwvnwdny";
-    const GA_MEASUREMENT_ID  = "G-XXXXXXXXXX";
+<canvas id="confetti" aria-hidden="true"></canvas>
 
-    /* ── GA4 ── */
-    (function(){
-      if(!GA_MEASUREMENT_ID||GA_MEASUREMENT_ID==="G-XXXXXXXXXX") return;
-      const s=document.createElement("script");s.async=true;
-      s.src="https://www.googletagmanager.com/gtag/js?id="+GA_MEASUREMENT_ID;
-      document.head.appendChild(s);
-      window.dataLayer=window.dataLayer||[];
-      function gtag(){dataLayer.push(arguments);}window.gtag=gtag;
-      gtag("js",new Date());gtag("config",GA_MEASUREMENT_ID);
-    })();
-    function ga(n,p){if(typeof gtag==="function")gtag("event",n,p||{});}
+<script>
+/* =====================================================================
+   ✏️  EDIT ME: endpoint, names, and all option text live up here
+   ===================================================================== */
+const FORM_ENDPOINT = "https://formspree.io/f/xkjobwje";
 
-    /* ── SPARKLES ── */
-    (function(){
-      const c=document.getElementById("sparkles");
-      for(let i=0;i<24;i++){
-        const el=document.createElement("div");el.className="spk";
-        el.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${2.5+Math.random()*4}s;--dl:${Math.random()*6}s;`;
-        c.appendChild(el);
-      }
-    })();
+const HER_NAME = "Julia";
+const MY_NAME  = "Gabriel";
 
-    /* ── STEPS ── */
-    const TOTAL=2;let current=1;
-    const dotsEl=document.getElementById("dots");
-    for(let i=1;i<=TOTAL;i++){
-      const d=document.createElement("div");
-      d.className="dot"+(i===1?" on":"");d.id="d"+i;
-      dotsEl.appendChild(d);
-    }
-    function updateProg(n){
-      const pct=Math.round((n/TOTAL)*100);
-      document.getElementById("prog-fill").style.width=pct+"%";
-      document.getElementById("prog-label").textContent="Step "+n+" of "+TOTAL;
-      document.getElementById("prog-pct").textContent=pct+"%";
-      for(let i=1;i<=TOTAL;i++){
-        const d=document.getElementById("d"+i);
-        d.className="dot"+(i<n?" done":i===n?" on":"");
-      }
-    }
-    function showStep(n){
-      document.querySelectorAll(".step").forEach(s=>s.classList.remove("active"));
-      document.getElementById("step-"+n).classList.add("active");
-      updateProg(n);current=n;
-      window.scrollTo({top:0,behavior:"smooth"});
-    }
+// Labels the "No" button cycles through each time she tries to tap it
+const NO_LABELS = [
+  "Are you sure?",
+  "Think again 🤨",
+  "Nope, not allowed",
+  "Wrong button",
+  HER_NAME + "...",
+  "Still no? Bold.",
+  "Try the other one",
+  "I can do this all day",
+  "It's getting smaller 👀",
+  "Just press Yes 😌"
+];
 
-    /* ── THEME ── */
-    function toggleTheme(){
-      const h=document.documentElement;
-      const dark=h.getAttribute("data-theme")==="dark";
-      h.setAttribute("data-theme",dark?"light":"dark");
-      document.getElementById("t-icon").textContent=dark?"🌙":"☀️";
-      document.getElementById("t-lbl").textContent=dark?"Dark":"Light";
-      localStorage.setItem("lny-theme",dark?"light":"dark");
-    }
-    (function(){
-      const t=localStorage.getItem("lny-theme")||"dark";
-      document.documentElement.setAttribute("data-theme",t);
-      document.getElementById("t-icon").textContent=t==="dark"?"☀️":"🌙";
-      document.getElementById("t-lbl").textContent=t==="dark"?"Light":"Dark";
-    })();
+// Step 3 vibes and their Step 4 sub-options (title + one-liner)
+const VIBES = [
+  {
+    emoji: "🌅",
+    title: "Chill vibes",
+    subtitle: "Food & views",
+    options: [
+      { emoji: "🧺", title: "Sunset picnic at a scenic overlook",
+        quip: "I bring the snacks. You bring opinions about the snacks." },
+      { emoji: "🍹", title: "Rooftop happy hour with a view (see who's funnier)",
+        quip: "Drinks, a skyline, and a friendly roast battle. Bring your best material." }
+    ]
+  },
+  {
+    emoji: "🏆",
+    title: "Activity",
+    subtitle: "Let's see who's more competitive",
+    options: [
+      { emoji: "⛳", title: "Mini golf (loser buys dessert)",
+        quip: "Start thinking about which dessert you're buying me." },
+      { emoji: "🎳", title: "Arcade / bowling showdown",
+        quip: "Bumpers are allowed. So is judgment." }
+    ]
+  },
+  {
+    emoji: "🤪",
+    title: "Chaos mode",
+    subtitle: "The funny option",
+    options: [
+      { emoji: "🎭", title: "Book of Mormon recital (see who's the better actor), then we remake the Jenna Marbles jiu jitsu video",
+        quip: "Tony nominations pending. Dramatic falls strongly encouraged." },
+      { emoji: "🤫", title: "I plan everything and you get zero info until we get there",
+        quip: "You get one hint about what to wear. It won't help." }
+    ]
+  }
+];
 
-    /* ── WRONG ANSWERS ONLY — any input unlocks the button ── */
-    function checkWrongAnswer(input) {
-      document.getElementById("unlock-btn").disabled = input.value.trim().length === 0;
-      autoSave();
-    }
+// Step 5 day choices, as weekday numbers (0 = Sunday ... 6 = Saturday).
+// Each one shows the next upcoming date for that weekday (today counts).
+const DAY_OPTIONS = [6, 0]; // Saturday, Sunday
 
+// Step 5 time choices. "phrase" is how it reads in the final summary.
+const TIMES = [
+  { emoji: "☀️", label: "Afternoon", phrase: "in the afternoon" },
+  { emoji: "🌆", label: "Evening",   phrase: "in the evening" }
+];
 
+/* =====================================================================
+   State: every answer lives here and is submitted once at the end
+   ===================================================================== */
+const state = {
+  name: HER_NAME,
+  vibe: "",        // Step 3 choice
+  date_idea: "",   // Step 4 choice
+  day: "",         // ISO date of the chosen day, e.g. "2026-11-21"
+  time: "",        // Afternoon / Evening
+  notes: ""
+};
 
-    /* ── VALIDATION ── */
-    function clearErr(){
-      document.querySelectorAll(".err.show").forEach(e=>e.classList.remove("show"));
-      document.querySelectorAll(".error").forEach(e=>e.classList.remove("error"));
-    }
-    function fail(el,id){
-      if(el)el.classList.add("error");
-      const m=document.getElementById(id);if(m)m.classList.add("show");
-    }
+let noAttempts = 0;        // how many times she tried to tap "No"
+let currentStep = 1;
+let chosenVibe = null;     // the VIBES entry she picked
+let transitioning = false; // blocks double-taps during step animations
+let sending = false;       // blocks double submits
 
-    function validate(n){
-      clearErr();let ok=true;
-      if(n===1){
-        const n1=document.getElementById("name1");
-        if(!n1.value.trim()){fail(n1,"e-n1");ok=false;}
-      }
-      if(n===2){
-        const vibe=document.querySelector('input[name="vibe"]:checked');
-        const acts=document.querySelectorAll('input[name="activity"]:checked');
-        const kiwi=document.getElementById("kiwi").value.trim();
-        const customIdea=document.getElementById("custom-idea").value.trim();
-        if(!vibe){fail(null,"e-vibe");ok=false;}
-        // If "I have an idea" selected, the text field is required
-        if(vibe && vibe.value==="custom" && !customIdea){fail(null,"e-custom");ok=false;}
-        // Activities only required if Kiwi's choice is also empty
-        if(!acts.length && !kiwi){fail(null,"e-act");ok=false;}
-      }
-      return ok;
-    }
+const TOTAL_STEPS = 6;
+const $ = (id) => document.getElementById(id);
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    function goNext(from){
-      if(!validate(from)) return;
-      ga("step_complete",{step:from});
-      showStep(from+1);autoSave();
-    }
-    function goBack(from){showStep(from-1);}
+/* =====================================================================
+   Step navigation + progress bar
+   ===================================================================== */
+function updateProgress() {
+  $("progressFill").style.width = (currentStep / TOTAL_STEPS * 100) + "%";
+  document.querySelector(".progress").setAttribute("aria-valuenow", currentStep);
+}
 
-    function updateCounter(el,max){
-      const n=el.value.length;
-      const c=document.getElementById("cnt-"+el.id);
-      c.textContent=n+" / "+max;
-      c.className="char-cnt"+(n>=max?" over":n>max*.85?" warn":"");
-    }
+function goTo(step, isBack) {
+  if (transitioning || step === currentStep) return;
+  transitioning = true;
 
-    /* ── AUTOSAVE ── */
-    let saveT;
-    function autoSave(){
-      clearTimeout(saveT);
-      saveT=setTimeout(()=>{
-        const vib=document.querySelector('input[name="vibe"]:checked');
-        const data={
-          name1:document.getElementById("name1").value,
-          vibe:vib?vib.value:"",
-          activities:[...document.querySelectorAll('input[name="activity"]:checked')].map(c=>c.value),
-          kiwi:document.getElementById("kiwi").value,
-          customIdea:document.getElementById("custom-idea").value,
-          step:current,
-        };
-        localStorage.setItem("lny_draft3",JSON.stringify(data));
-        const b=document.getElementById("save-badge");
-        b.classList.add("show");setTimeout(()=>b.classList.remove("show"),2500);
-      },900);
-    }
-    (function(){
-      const raw=localStorage.getItem("lny_draft3");
-      if(!raw) return;
-      try{
-        const d=JSON.parse(raw);
-        if(d.name1){
-          document.getElementById("name1").value=d.name1;
-          // Re-trigger the unlock check silently
-          if(d.name1.trim()){
-            document.getElementById("unlock-btn").disabled=false;
-          }
-        }
-        if(d.vibe){const r=document.querySelector('input[name="vibe"][value="'+d.vibe+'"]');if(r)r.checked=true;}
-        if(d.activities)d.activities.forEach(v=>{const cb=document.querySelector('input[name="activity"][value="'+v+'"]');if(cb)cb.checked=true;});
-        if(d.kiwi){document.getElementById("kiwi").value=d.kiwi;updateCounter(document.getElementById("kiwi"),300);}
-        if(d.customIdea){document.getElementById("custom-idea").value=d.customIdea;updateCounter(document.getElementById("custom-idea"),300);}
-      }catch(e){}
-    })();
+  const current = document.querySelector('.step[data-step="' + currentStep + '"]');
+  const next = document.querySelector('.step[data-step="' + step + '"]');
+  current.classList.add("leaving");
 
-    /* ══════════════════════════════════════════════════════
-       FIRE HORSE GALLOP TRANSITION
-       1. Horse gallops in from the left
-       2. Simultaneously, fire trail particles burst
-       3. When horse is ~60% across, card starts sweeping right
-       4. When animation ends, horse + ground fire vanish, thank you appears
-    ══════════════════════════════════════════════════════ */
-    function spawnTrailParticle(x) {
-      const colors = ["#FF6B00","#F4C430","#FF4500","#FFD700","#C0392B","#FF8C00"];
-      const el = document.createElement("div");
-      el.className = "ft-particle";
-      const size = (8 + Math.random()*16) + "px";
-      const tx   = (Math.random() * 40 - 20) + "px";
-      const ty   = (Math.random() * 60 - 10) + "px";
-      const dur  = (.4 + Math.random()*.5) + "s";
-      el.style.cssText = `
-        width:${size};height:${size};
-        background:${colors[Math.floor(Math.random()*colors.length)]};
-        left:${x}px;
-        --td:${dur};--tx:${tx};--ty:${ty};
-      `;
-      document.body.appendChild(el);
-      // Force reflow then add class
-      void el.offsetWidth;
-      el.classList.add("burst");
-      setTimeout(()=>el.remove(), 1000);
-    }
+  setTimeout(function () {
+    current.classList.remove("active", "leaving", "back");
+    next.classList.toggle("back", !!isBack);
+    next.classList.add("active");
+    currentStep = step;
+    updateProgress();
 
-    async function runHorseTransition() {
-      const horse = document.getElementById("gallop-horse");
-      const groundFire = document.getElementById("ground-fire");
-      const cardWrap = document.getElementById("card-wrap");
+    // The runaway "No" button only exists on step 2
+    $("noBtn").style.display = step === 2 ? "" : "none";
 
-      // Kick off horse + ground fire
-      horse.classList.add("running");
-      groundFire.classList.add("running");
+    // Move focus to the new heading for keyboard / screen reader users
+    const heading = next.querySelector(".panel.show h1") || next.querySelector("h1");
+    if (heading) heading.focus({ preventScroll: true });
+    window.scrollTo(0, 0);
+    transitioning = false;
+  }, reducedMotion ? 0 : 180);
+}
 
-      // Spawn trail particles as the horse moves
-      let trailInterval = setInterval(() => {
-        // Estimate horse x position based on elapsed time
-        const rect = horse.getBoundingClientRect();
-        spawnTrailParticle(rect.left + rect.width * .2);
-      }, 60);
+/* =====================================================================
+   Step 1: Intro
+   ===================================================================== */
+$("introTitle").textContent = "Hey " + HER_NAME;
+$("loadingTitle").textContent = "Sending to " + MY_NAME + "... 💌";
+$("startBtn").addEventListener("click", function () { goTo(2); });
 
-      // After 700ms the horse is roughly over the card — start sweep
-      await new Promise(r => setTimeout(r, 700));
-      cardWrap.classList.add("sweep-right");
+/* =====================================================================
+   Step 2: The un-pressable "No" button
+   ===================================================================== */
+const noBtn = $("noBtn");
+const yesBtn = $("yesBtn");
+let lastCounted = 0;
+let lastDodge = 0;  // time of the last escape, used to ignore "ghost" taps on Yes
 
-      // After full gallop (1500ms total) clean up and show thanks
-      await new Promise(r => setTimeout(r, 900));
-      clearInterval(trailInterval);
+// Distance from a point to the edge of a rectangle (0 if inside it)
+function distanceToRect(x, y, r) {
+  const dx = Math.max(r.left - x, 0, x - r.right);
+  const dy = Math.max(r.top - y, 0, y - r.bottom);
+  return Math.hypot(dx, dy);
+}
 
-      horse.classList.remove("running");
-      groundFire.classList.remove("running");
-      horse.style.display = "none";
+function dodgeNo(pointerX, pointerY) {
+  // Count the attempt (throttled so one tap isn't counted twice)
+  const now = Date.now();
+  if (now - lastCounted > 400) {
+    lastCounted = now;
+    noAttempts++;
+    noBtn.textContent = NO_LABELS[(noAttempts - 1) % NO_LABELS.length];
+    // "No" shrinks, "Yes" grows a little
+    noBtn.style.setProperty("--s", Math.max(0.4, 1 - noAttempts * 0.07));
+    yesBtn.style.setProperty("--grow", 1 + Math.min(noAttempts, 8) * 0.04);
+  }
 
-      showThanks();
-    }
+  lastDodge = now;
 
-    function toggleCustomIdea(show) {
-      const wrap = document.getElementById("custom-idea-wrap");
-      wrap.style.display = show ? "block" : "none";
-      if (!show) {
-        const el = document.getElementById("custom-idea");
-        el.value = "";
-        document.getElementById("cnt-custom-idea").textContent = "0 / 300";
-      }
-    }
+  // First escape: lift the button out of the card so it can roam the screen
+  if (!noBtn.classList.contains("fleeing")) {
+    const r = noBtn.getBoundingClientRect();
+    // Leave an invisible placeholder so "Yes" doesn't slide under her finger
+    const spacer = document.createElement("span");
+    spacer.setAttribute("aria-hidden", "true");
+    spacer.style.cssText = "display:inline-block;flex-shrink:0;width:" +
+      noBtn.offsetWidth + "px;height:" + noBtn.offsetHeight + "px";
+    noBtn.parentNode.insertBefore(spacer, noBtn);
+    noBtn.style.left = r.left + "px";
+    noBtn.style.top = r.top + "px";
+    document.body.appendChild(noBtn);
+    noBtn.classList.add("fleeing");
+    void noBtn.offsetWidth; // force layout so the first move animates
+  }
 
-    // Wire vibe radios: toggle custom field + autosave
-    document.querySelectorAll('input[name="vibe"]').forEach(r => {
-      r.addEventListener("change", function() {
-        toggleCustomIdea(this.value === "custom");
-        autoSave();
-      });
+  // Pick a random spot that's on screen, away from her finger and the Yes button
+  const pad = 12;
+  const w = noBtn.offsetWidth, h = noBtn.offsetHeight;
+  const maxX = Math.max(pad, window.innerWidth - w - pad);
+  const maxY = Math.max(pad, window.innerHeight - h - pad);
+  const yes = yesBtn.getBoundingClientRect();
+  let x = pad, y = pad;
+
+  for (let i = 0; i < 30; i++) {
+    x = pad + Math.random() * (maxX - pad);
+    y = pad + Math.random() * (maxY - pad);
+    const spot = { left: x, top: y, right: x + w, bottom: y + h };
+    const farFromPointer = pointerX == null || distanceToRect(pointerX, pointerY, spot) > 110;
+    const clearOfYes = spot.right < yes.left - 16 || spot.left > yes.right + 16 ||
+                       spot.bottom < yes.top - 16 || spot.top > yes.bottom + 16;
+    if (farFromPointer && clearOfYes) break;
+  }
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+}
+
+// Touch / click anywhere near the button: it bolts before the tap lands
+document.addEventListener("pointerdown", function (e) {
+  if (currentStep !== 2 || yesBtn.contains(e.target)) return;
+  if (distanceToRect(e.clientX, e.clientY, noBtn.getBoundingClientRect()) < 45) {
+    e.preventDefault();
+    dodgeNo(e.clientX, e.clientY);
+  }
+});
+
+// Mouse: it runs as the cursor gets close
+document.addEventListener("pointermove", function (e) {
+  if (currentStep !== 2 || e.pointerType !== "mouse") return;
+  if (distanceToRect(e.clientX, e.clientY, noBtn.getBoundingClientRect()) < 70) {
+    dodgeNo(e.clientX, e.clientY);
+  }
+});
+
+// Keyboard focus also makes it run, and a "click" never counts as a No
+noBtn.addEventListener("focus", function () { if (currentStep === 2) dodgeNo(); });
+noBtn.addEventListener("click", function (e) { e.preventDefault(); dodgeNo(); });
+
+yesBtn.addEventListener("click", function () {
+  // Ignore a tap that was really aimed at "No" a split second ago
+  if (Date.now() - lastDodge < 700) return;
+
+  // A little teasing on the next screen if she went for "No" first
+  const tease = $("noTease");
+  if (noAttempts > 0) {
+    tease.textContent = "(I counted " + noAttempts + (noAttempts === 1 ? " attempt" : " attempts") +
+                        " at \"No\", by the way 👀)";
+    tease.hidden = false;
+  }
+  goTo(3);
+});
+
+/* =====================================================================
+   Steps 3 & 4: Vibe cards and sub-option cards (built from VIBES)
+   ===================================================================== */
+function makeCard(emoji, title, sub) {
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "card-btn";
+
+  const e = document.createElement("span");
+  e.className = "card-emoji";
+  e.setAttribute("aria-hidden", "true");
+  e.textContent = emoji;
+
+  const text = document.createElement("span");
+  const t = document.createElement("span");
+  t.className = "card-title";
+  t.textContent = title;
+  const s = document.createElement("span");
+  s.className = "card-sub";
+  s.textContent = sub;
+  text.append(t, s);
+
+  btn.append(e, text);
+  return btn;
+}
+
+function markSelected(container, selectedBtn) {
+  container.querySelectorAll(".card-btn").forEach(function (b) {
+    b.classList.toggle("selected", b === selectedBtn);
+  });
+}
+
+VIBES.forEach(function (vibe) {
+  const card = makeCard(vibe.emoji, vibe.title, vibe.subtitle);
+  card.addEventListener("click", function () {
+    // Changing vibe clears the old sub-option
+    if (chosenVibe !== vibe) state.date_idea = "";
+    chosenVibe = vibe;
+    state.vibe = vibe.title;
+    markSelected($("vibeCards"), card);
+    renderSubOptions();
+    goTo(4);
+  });
+  $("vibeCards").appendChild(card);
+});
+
+function renderSubOptions() {
+  const wrap = $("subCards");
+  wrap.textContent = "";
+  $("subEmoji").textContent = chosenVibe.emoji;
+  $("subTitle").textContent = chosenVibe.title + " it is. Pick one:";
+
+  chosenVibe.options.forEach(function (opt) {
+    const card = makeCard(opt.emoji, opt.title, opt.quip);
+    if (state.date_idea === opt.title) card.classList.add("selected");
+    card.addEventListener("click", function () {
+      state.date_idea = opt.title;
+      markSelected(wrap, card);
+      goTo(5);
     });
-    document.querySelectorAll('input[name="activity"]').forEach(el => el.addEventListener("change", autoSave));
-    document.getElementById("name1").addEventListener("input", autoSave);
-    document.getElementById("kiwi").addEventListener("input", autoSave);
+    wrap.appendChild(card);
+  });
+}
 
-    async function submitForm(){
-      if(!validate(2)) return;
+$("backToVibe").addEventListener("click", function () { goTo(3, true); });
 
-      const btn=document.getElementById("sub-btn");
-      btn.classList.add("loading");btn.disabled=true;
+/* =====================================================================
+   Step 5: Day (Saturday / Sunday), time (Afternoon / Evening), notes
+   ===================================================================== */
+const lockBtn = $("lockBtn");
 
-      const vib=document.querySelector('input[name="vibe"]:checked');
-      const customIdea = document.getElementById("custom-idea").value.trim();
-      const payload={
-        name:          document.getElementById("name1").value.trim(),
-        dinner_vibe:   vib && vib.value === "custom" ? "Custom: "+customIdea : (vib?vib.value:""),
-        activities:    [...document.querySelectorAll('input[name="activity"]:checked')].map(c=>c.value).join(", "),
-        kiwis_choice:  document.getElementById("kiwi").value.trim(),
-        _subject:      "🐎 LNY Date Night — "+document.getElementById("name1").value.trim(),
-      };
+// Date -> "YYYY-MM-DD" in her local timezone
+function toISO(d) {
+  return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" +
+         String(d.getDate()).padStart(2, "0");
+}
 
-      // Fire the Formspree request in parallel with the animation
-      const submitPromise = fetch(FORMSPREE_ENDPOINT,{
-        method:"POST",
-        headers:{"Accept":"application/json","Content-Type":"application/json"},
-        body:JSON.stringify(payload),
-      }).catch(()=>null); // silent fail — show thanks regardless
+// Next date that falls on the given weekday (today counts)
+function nextWeekday(weekday) {
+  const d = new Date();
+  d.setHours(12, 0, 0, 0);
+  d.setDate(d.getDate() + ((weekday - d.getDay() + 7) % 7));
+  return d;
+}
 
-      // Run the horse 🐎
-      await runHorseTransition();
+// "2026-11-21" -> "Saturday, November 21"
+function prettyDay(iso, withYear) {
+  const p = iso.split("-").map(Number);
+  const opts = { weekday: "long", month: "long", day: "numeric" };
+  if (withYear) opts.year = "numeric";
+  return new Date(p[0], p[1] - 1, p[2]).toLocaleDateString("en-US", opts);
+}
 
-      // Await the request just in case it's still in flight
-      await submitPromise;
+function updateLockBtn() {
+  lockBtn.disabled = sending || !(state.day && state.time);
+}
 
-      ga("form_submit",{form:"lny_date_night_2026"});
-      localStorage.removeItem("lny_draft3");
-    }
+// Builds a chip button; `small` is an optional second line
+function makeChip(emoji, label, small) {
+  const chip = document.createElement("button");
+  chip.type = "button";
+  chip.className = "chip";
+  chip.setAttribute("aria-pressed", "false");
+  if (emoji) {
+    const e = document.createElement("span");
+    e.className = "chip-emoji";
+    e.setAttribute("aria-hidden", "true");
+    e.textContent = emoji;
+    chip.appendChild(e);
+  }
+  chip.appendChild(document.createTextNode(label));
+  if (small) {
+    const s = document.createElement("span");
+    s.className = "chip-small";
+    s.textContent = small;
+    chip.appendChild(s);
+  }
+  return chip;
+}
 
-    function showThanks(){
-      document.getElementById("prog-wrap").style.display="none";
-      document.querySelectorAll(".step").forEach(s=>s.style.display="none");
-      document.getElementById("save-badge").style.display="none";
-      // Inject the wrong-answer name into the Fire Horse line
-      const enteredName = document.getElementById("name1").value.trim();
-      if(enteredName) {
-        document.getElementById("ty-name-horse").textContent = enteredName;
+function pressOnly(container, chip) {
+  container.querySelectorAll(".chip").forEach(function (c) {
+    c.setAttribute("aria-pressed", c === chip ? "true" : "false");
+  });
+}
+
+// Day chips: upcoming Saturday and Sunday, in calendar order
+DAY_OPTIONS
+  .map(nextWeekday)
+  .sort(function (a, b) { return a - b; })
+  .forEach(function (date) {
+    const chip = makeChip(
+      "",
+      date.toLocaleDateString("en-US", { weekday: "long" }),
+      date.toLocaleDateString("en-US", { month: "short", day: "numeric" })
+    );
+    chip.addEventListener("click", function () {
+      state.day = toISO(date);
+      pressOnly($("dayChips"), chip);
+      updateLockBtn();
+    });
+    $("dayChips").appendChild(chip);
+  });
+
+// Time chips: Afternoon / Evening
+TIMES.forEach(function (t) {
+  const chip = makeChip(t.emoji, t.label);
+  chip.addEventListener("click", function () {
+    state.time = t.label;
+    pressOnly($("timeChips"), chip);
+    updateLockBtn();
+  });
+  $("timeChips").appendChild(chip);
+});
+
+$("notesInput").addEventListener("input", function (e) { state.notes = e.target.value.trim(); });
+$("backToSub").addEventListener("click", function () { goTo(4, true); });
+
+/* =====================================================================
+   Step 6: Submit to Formspree, then show success or a friendly error
+   ===================================================================== */
+function showPanel(name) {
+  ["Loading", "Success", "Error"].forEach(function (p) {
+    $("panel" + p).classList.toggle("show", p === name);
+  });
+  const h = $("panel" + name).querySelector("h1");
+  if (h && currentStep === 6) h.focus({ preventScroll: true });
+}
+
+async function submitAnswers() {
+  if (sending || !(state.day && state.time)) return;
+  sending = true;
+  updateLockBtn();              // disables "Lock it in" while sending
+  $("retryBtn").disabled = true;
+  showPanel("Loading");
+  goTo(6);
+
+  const payload = {
+    name: state.name,
+    vibe: state.vibe,
+    date_idea: state.date_idea,
+    day: prettyDay(state.day, true),
+    time: state.time,
+    notes: state.notes,
+    no_attempts: noAttempts,
+    submitted_at: new Date().toISOString()
+  };
+
+  try {
+    // Keep the loading screen up for at least a moment so it doesn't flash
+    const minWait = new Promise(function (r) { setTimeout(r, 900); });
+    const request = fetch(FORM_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    const results = await Promise.all([request, minWait]);
+    if (!results[0].ok) throw new Error("Formspree responded with " + results[0].status);
+
+    // Success: summary card + confetti
+    const timePhrase = TIMES.find(function (t) { return t.label === state.time; }).phrase;
+    $("summaryText").textContent =
+      state.date_idea + " on " + prettyDay(state.day) + " " + timePhrase + ".";
+    $("successNote").textContent = MY_NAME + " has been notified and is probably smiling at his phone.";
+    showPanel("Success");
+    launchConfetti();
+  } catch (err) {
+    console.error("Submit failed:", err);
+    showPanel("Error");          // answers stay in `state`, nothing is lost
+  } finally {
+    sending = false;
+    updateLockBtn();
+    $("retryBtn").disabled = false;
+  }
+}
+
+lockBtn.addEventListener("click", submitAnswers);
+$("retryBtn").addEventListener("click", submitAnswers);
+$("editBtn").addEventListener("click", function () { goTo(5, true); });
+
+/* =====================================================================
+   Confetti (plain canvas, no libraries)
+   ===================================================================== */
+function launchConfetti() {
+  if (reducedMotion) return;
+  const canvas = $("confetti");
+  const ctx = canvas.getContext("2d");
+  const dpr = window.devicePixelRatio || 1;
+  const W = window.innerWidth, H = window.innerHeight;
+  canvas.width = W * dpr;
+  canvas.height = H * dpr;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  const colors = ["#c62f5b", "#ff8fab", "#ffd166", "#8ecae6", "#b388eb", "#ffffff"];
+  const pieces = [];
+  for (let i = 0; i < 170; i++) {
+    pieces.push({
+      x: Math.random() * W,
+      y: -20 - Math.random() * H * 0.6,
+      vx: (Math.random() - 0.5) * 3,
+      vy: 2 + Math.random() * 4,
+      size: 6 + Math.random() * 7,
+      rot: Math.random() * Math.PI * 2,
+      vr: (Math.random() - 0.5) * 0.3,
+      color: colors[i % colors.length],
+      round: Math.random() < 0.3
+    });
+  }
+
+  const DURATION = 4800;
+  const start = performance.now();
+
+  function frame(now) {
+    const elapsed = now - start;
+    ctx.clearRect(0, 0, W, H);
+    // Fade everything out over the last second
+    ctx.globalAlpha = Math.min(1, Math.max(0, (DURATION - elapsed) / 1000));
+
+    pieces.forEach(function (p) {
+      p.x += p.vx + Math.sin((elapsed + p.size * 100) / 300) * 0.6; // gentle sway
+      p.y += p.vy;
+      p.vy += 0.03;                                                  // gravity
+      p.rot += p.vr;
+
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.fillStyle = p.color;
+      if (p.round) {
+        ctx.beginPath();
+        ctx.arc(0, 0, p.size / 2, 0, Math.PI * 2);
+        ctx.fill();
+      } else {
+        ctx.fillRect(-p.size / 2, -p.size / 4, p.size, p.size / 2);
       }
-      // Reset card position so thank you renders cleanly
-      const cw=document.getElementById("card-wrap");
-      cw.classList.remove("sweep-right");
-      cw.style.transform="none";
-      document.getElementById("ty").classList.add("show");
-      window.scrollTo({top:0,behavior:"smooth"});
-    }
-  </script>
+      ctx.restore();
+    });
+
+    if (elapsed < DURATION) requestAnimationFrame(frame);
+    else ctx.clearRect(0, 0, W, H);
+  }
+  requestAnimationFrame(frame);
+}
+
+/* ---------- Kick things off ---------- */
+updateProgress();
+</script>
 </body>
 </html>
